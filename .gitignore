@@ -1,0 +1,38 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Data and results (keep folder structure via .gitkeep, ignore actual content)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/sample_synthetic_flows.csv
+data/processed/*
+!data/processed/.gitkeep
+data/adversarial/*
+!data/adversarial/.gitkeep
+results/tables/*
+!results/tables/.gitkeep
+results/plots/*
+!results/plots/.gitkeep
+
+# Environment/secrets
+.env

@@ -1,0 +1,41 @@
+# Project configuration
+# Phase 1: only structural/project-level settings.
+# Dataset, agent, and defense settings will be added in later phases.
+
+project:
+  name: "iot-agent-security-eval"
+  description: "Security evaluation of LLM-based agents for IoT attack detection"
+  phase: 2
+
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_adversarial: "data/adversarial"
+  results_tables: "results/tables"
+  results_plots: "results/plots"
+
+experiment:
+  random_seed: 42
+
+# Phase 2: dataset and preprocessing settings.
+# Dataset choice: Edge-IIoTset (see README for why).
+dataset:
+  name: "Edge-IIoTset"
+  # Column names Edge-IIoTset commonly ships with. The pipeline checks these
+  # in order and uses the first one it finds, so this also works if you're
+  # using a differently-named CSV variant.
+  label_column_candidates:
+    - "attack_type"
+    - "attack_label"
+    - "label"
+    - "class"
+  # Text values in the label column that mean "no attack" -> BENIGN.
+  # Everything else is mapped to ATTACK.
+  benign_values:
+    - "normal"
+    - "benign"
+    - "0"
+    - "no attack"
+  split:
+    val_size: 0.15
+    test_size: 0.15
