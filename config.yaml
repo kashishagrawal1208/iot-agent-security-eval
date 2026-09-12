@@ -43,7 +43,7 @@ dataset:
 # Phase 3: single-shot classifier agent settings.
 agent:
   provider: "gemini"
-  model: "gemini-flash-latest"
+  model: "gemini-3.6-flash"
   temperature: 0.0
   excluded_from_prompt:
     - "label"

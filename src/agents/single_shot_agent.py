@@ -19,7 +19,7 @@ import re
 import yaml
 from dotenv import load_dotenv
 from google import genai
-from google.genai import types
+from src.agents.gemini_utils import generate_with_retry
 
 SYSTEM_PROMPT = """You are an IoT network security analyst. You will be given \
 a description of a single network flow's observed properties (IP addresses, \
@@ -56,6 +56,7 @@ def parse_response(text: str) -> dict:
     we return label=UNPARSEABLE so this is visible in results instead
     of silently miscounting it as BENIGN or ATTACK.
     """
+    text = text or ""  # the model can return None when its reply has no text part
     label_match = re.search(r"LABEL:\s*(BENIGN|ATTACK)", text, re.IGNORECASE)
     rationale_match = re.search(r"RATIONALE:\s*(.+)", text, re.IGNORECASE)
 
@@ -67,10 +68,11 @@ def parse_response(text: str) -> dict:
 
 def classify_flow(client: genai.Client, model: str, temperature: float, flow_text: str) -> dict:
     """Send one flow description to Gemini and return the parsed verdict."""
-    response = client.models.generate_content(
-        model=model,
-        contents=flow_text,
-        config=types.GenerateContentConfig(
+    response = generate_with_retry(
+        client,
+        model,
+        flow_text,
+        types.GenerateContentConfig(
             system_instruction=SYSTEM_PROMPT,
             temperature=temperature,
         ),
