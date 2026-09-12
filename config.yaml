@@ -39,3 +39,12 @@ dataset:
   split:
     val_size: 0.15
     test_size: 0.15
+
+# Phase 3: single-shot classifier agent settings.
+agent:
+  provider: "gemini"
+  model: "gemini-flash-latest"
+  temperature: 0.0
+  excluded_from_prompt:
+    - "label"
+    - "attack_type"
