@@ -19,6 +19,7 @@ import re
 import yaml
 from dotenv import load_dotenv
 from google import genai
+from google.genai import types
 from src.agents.gemini_utils import generate_with_retry
 
 SYSTEM_PROMPT = """You are an IoT network security analyst. You will be given \

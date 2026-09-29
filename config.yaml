@@ -43,8 +43,22 @@ dataset:
 # Phase 3: single-shot classifier agent settings.
 agent:
   provider: "gemini"
-  model: "gemini-3.6-flash"
+  model: "gemini-3.5-flash-lite"
   temperature: 0.0
   excluded_from_prompt:
     - "label"
     - "attack_type"
+
+
+# Phase 5: adversarial test corpus settings.
+adversarial:
+  corpus_path: "data/adversarial/adversarial_corpus.csv"
+  results_path: "results/tables/adversarial_results.csv"
+  cases_per_category:
+    direct_injection: 6
+    tool_poisoning: 5
+    compound_poisoning: 4
+    context_flooding: 5
+  injection_field: "mqtt.topic"   # attacker-controlled field that payloads are placed into
+  flood_repeats: 12               # how many decoy lines the flooding attack adds
+  pause_seconds: 5                # pause between API calls (free-tier rate limits)

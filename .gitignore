@@ -36,3 +36,5 @@ results/plots/*
 
 # Environment/secrets
 .env
+!data/adversarial/adversarial_corpus.csv
+!results/tables/adversarial_results.csv

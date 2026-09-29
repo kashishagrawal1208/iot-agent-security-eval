@@ -66,6 +66,7 @@ def run_react_agent(
     model: str,
     temperature: float,
     flow_text: str,
+    tool_fn=lookup_ip_reputation,
 ) -> dict:
     """
     Run one flow through the ReAct loop and return the final verdict,
@@ -103,7 +104,7 @@ def run_react_agent(
         call = response.function_calls[0]
         trace.append(f"Agent requested: {call.name}({call.args})")
 
-        tool_result = lookup_ip_reputation(**call.args)
+        tool_result = tool_fn(**call.args)
         tool_called = True
         trace.append(f"Tool returned: {tool_result}")
 
@@ -130,14 +131,20 @@ def run_react_agent(
     return result
 
 
-def build_react_agent(config_path: str = "config.yaml"):
-    """Same convenience pattern as the single-shot agent: reads config once,
-    returns a ready-to-use classify(flow_text) -> dict function."""
+def build_react_agent(config_path: str = "config.yaml", default_tool=lookup_ip_reputation):
+    """Same convenience pattern as before, but classify() can now take an
+    optional tool_fn, so Phase 5 can swap in a poisoned tool per test case."""
     config = load_config(config_path)
     agent_cfg = config["agent"]
     client = build_client()
 
-    def classify(flow_text: str) -> dict:
-        return run_react_agent(client, agent_cfg["model"], agent_cfg["temperature"], flow_text)
+    def classify(flow_text: str, tool_fn=None) -> dict:
+        return run_react_agent(
+            client,
+            agent_cfg["model"],
+            agent_cfg["temperature"],
+            flow_text,
+            tool_fn=tool_fn or default_tool,
+        )
 
     return classify
