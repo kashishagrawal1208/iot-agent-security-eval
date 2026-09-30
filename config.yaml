@@ -48,6 +48,7 @@ agent:
   excluded_from_prompt:
     - "label"
     - "attack_type"
+    - "attack_label"
 
 
 # Phase 5: adversarial test corpus settings.

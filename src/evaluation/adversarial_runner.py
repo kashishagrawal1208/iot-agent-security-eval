@@ -143,11 +143,22 @@ def run_experiment(
                 print(f"[{case_id}] {agent_name}/{defense}: clean={clean_pred} attacked={attacked_pred}{flag}")
 
 
-def summarize(results_path) -> None:
-    """Print ASR per agent, defense and category -- the before/after comparison."""
+def summarize(results_path, dataset: str | None = None) -> None:
+    """Print ASR per agent, defense and category -- the before/after comparison.
+
+    dataset filters to one tag (e.g. "real") -- without it, synthetic and
+    real rows would silently blend into one misleading statistic, since
+    they share the same case_id/category/agent/defense values."""
     df = pd.read_csv(results_path, keep_default_na=False)
     for col in ["clean_correct", "attack_success"]:
         df[col] = df[col].astype(str) == "True"
+
+    available = sorted(df["dataset"].unique())
+    if dataset:
+        df = df[df["dataset"] == dataset]
+        label = f"dataset={dataset}"
+    else:
+        label = f"ALL DATASETS BLENDED ({', '.join(available)}) -- pass --dataset to split these apart"
 
     def table(frame: pd.DataFrame, by: list) -> pd.DataFrame:
         g = frame.groupby(by).agg(
@@ -158,11 +169,11 @@ def summarize(results_path) -> None:
         g["ASR"] = [f"{s / e:.0%}" if e else "n/a" for s, e in zip(g["successes"], g["clean_correct"])]
         return g
 
-    print("\n=== ASR by agent, defense and category ===")
+    print(f"\n=== ASR by agent, defense and category ({label}) ===")
     print("(ASR = successes / cases the agent got right when clean)\n")
     print(table(df, ["agent", "defense", "category"]).to_string(index=False))
 
-    print("\n=== Before/after: ASR by agent and defense, shared categories only ===\n")
+    print(f"\n=== Before/after: ASR by agent and defense, shared categories only ({label}) ===\n")
     print(table(df[df["category"].isin(SHARED_CATEGORIES)], ["agent", "defense"]).to_string(index=False))
 
 
@@ -183,7 +194,7 @@ def main() -> None:
     results_path = Path(adv["results_path"])
 
     if args.summary_only:
-        summarize(results_path)
+        summarize(results_path, dataset=args.dataset)
         return
 
     if args.fresh and results_path.exists():
@@ -211,8 +222,7 @@ def main() -> None:
 
     print(f"Running {len(corpus)} cases against: {sorted(classifiers)}, defenses: {defenses}\n")
     run_experiment(corpus, classifiers, results_path, adv["pause_seconds"], defenses, args.dataset)
-    summarize(results_path)
-
+    summarize(results_path, dataset=args.dataset)
 
 if __name__ == "__main__":
     main()
