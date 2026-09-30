@@ -67,14 +67,20 @@ def parse_response(text: str) -> dict:
     return {"label": label, "rationale": rationale, "raw_response": text}
 
 
-def classify_flow(client: genai.Client, model: str, temperature: float, flow_text: str) -> dict:
-    """Send one flow description to Gemini and return the parsed verdict."""
+def classify_flow(
+    client: genai.Client, model: str, temperature: float, flow_text: str, defense_instructions: str = ""
+) -> dict:
+    """Send one flow description to Gemini and return the parsed verdict.
+
+    defense_instructions, if given, is appended to the system prompt (see
+    src/defenses/) -- this is how Phase 6 turns a defense on for a run
+    without changing the agent's core logic."""
     response = generate_with_retry(
         client,
         model,
         flow_text,
         types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT,
+            system_instruction=SYSTEM_PROMPT + defense_instructions,
             temperature=temperature,
         ),
     )
@@ -84,14 +90,17 @@ def classify_flow(client: genai.Client, model: str, temperature: float, flow_tex
 def build_agent(config_path: str = "config.yaml"):
     """
     Convenience wrapper: reads config.yaml once and returns a ready-to-use
-    function classify(flow_text) -> dict, so calling code doesn't need to
-    juggle the client/model/temperature separately.
+    function classify(flow_text, defense_instructions="") -> dict, so
+    calling code doesn't need to juggle the client/model/temperature
+    separately.
     """
     config = load_config(config_path)
     agent_cfg = config["agent"]
     client = build_client()
 
-    def classify(flow_text: str) -> dict:
-        return classify_flow(client, agent_cfg["model"], agent_cfg["temperature"], flow_text)
+    def classify(flow_text: str, defense_instructions: str = "") -> dict:
+        return classify_flow(
+            client, agent_cfg["model"], agent_cfg["temperature"], flow_text, defense_instructions
+        )
 
     return classify

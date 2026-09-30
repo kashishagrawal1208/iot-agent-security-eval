@@ -67,6 +67,7 @@ def run_react_agent(
     temperature: float,
     flow_text: str,
     tool_fn=lookup_ip_reputation,
+    defense_instructions: str = "",
 ) -> dict:
     """
     Run one flow through the ReAct loop and return the final verdict,
@@ -78,7 +79,7 @@ def run_react_agent(
     )
     tool = types.Tool(function_declarations=[tool_declaration])
     config = types.GenerateContentConfig(
-        system_instruction=REACT_SYSTEM_PROMPT,
+        system_instruction=REACT_SYSTEM_PROMPT + defense_instructions,
         temperature=temperature,
         tools=[tool],
         # We execute tool calls ourselves below, rather than letting the
@@ -132,19 +133,20 @@ def run_react_agent(
 
 
 def build_react_agent(config_path: str = "config.yaml", default_tool=lookup_ip_reputation):
-    """Same convenience pattern as before, but classify() can now take an
-    optional tool_fn, so Phase 5 can swap in a poisoned tool per test case."""
+    """Same convenience pattern as before: classify() can take an optional
+    tool_fn (Phase 5, poisoned tools) and defense_instructions (Phase 6)."""
     config = load_config(config_path)
     agent_cfg = config["agent"]
     client = build_client()
 
-    def classify(flow_text: str, tool_fn=None) -> dict:
+    def classify(flow_text: str, tool_fn=None, defense_instructions: str = "") -> dict:
         return run_react_agent(
             client,
             agent_cfg["model"],
             agent_cfg["temperature"],
             flow_text,
             tool_fn=tool_fn or default_tool,
+            defense_instructions=defense_instructions,
         )
 
     return classify

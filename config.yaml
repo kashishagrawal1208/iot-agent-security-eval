@@ -62,3 +62,13 @@ adversarial:
   injection_field: "mqtt.topic"   # attacker-controlled field that payloads are placed into
   flood_repeats: 12               # how many decoy lines the flooding attack adds
   pause_seconds: 5                # pause between API calls (free-tier rate limits)
+
+
+# Phase 6: defense layer settings.
+defenses:
+  available:
+    - "none"
+    - "evidence_first"
+    - "verification_gate"
+  # verification_gate only applies to the react agent (it has no meaning
+  # for single_shot, which has no tool) -- the runner skips it there automatically.
