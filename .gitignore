@@ -38,3 +38,7 @@ results/plots/*
 .env
 !data/adversarial/adversarial_corpus.csv
 !results/tables/adversarial_results.csv
+
+!results/plots/*.png
+!results/tables/clean_evaluation.csv
+!results/tables/clean_metrics_summary.csv
