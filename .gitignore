@@ -42,3 +42,9 @@ results/plots/*
 !results/plots/*.png
 !results/tables/clean_evaluation.csv
 !results/tables/clean_metrics_summary.csv
+
+!results/tables/final_table1_classification.csv
+!results/tables/final_table2_adversarial.csv
+!results/tables/final_table3_defense.csv
+!results/tables/final_table4_behaviour.csv
+!results/tables/final_stats_tests.csv

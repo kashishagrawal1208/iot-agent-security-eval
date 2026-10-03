@@ -1,0 +1,11 @@
+metric,scope,value,n
+tool_reliance_rate_clean,react / defense=evidence_first,0.85,20
+tool_reliance_rate_attacked,react / defense=evidence_first,0.7,20
+tool_reliance_rate_clean,react / defense=none,0.9,20
+tool_reliance_rate_attacked,react / defense=none,0.5,20
+tool_reliance_rate_clean,react / defense=verification_gate,0.8,20
+tool_reliance_rate_attacked,react / defense=verification_gate,0.6,20
+attack_success_given_tool_not_called,react / tool_poisoning+compound_poisoning / defense=none,0.0,2
+attack_success_given_tool_called,react / tool_poisoning+compound_poisoning / defense=none,0.14285714285714285,7
+parse_compliance_rate,single_shot,1.0,104
+parse_compliance_rate,react,1.0,180
