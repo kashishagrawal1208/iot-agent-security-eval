@@ -1,6 +1,6 @@
 agent,defense,clean_correct_n,ASR,ASR_reduction_abs,ASR_reduction_rel
-react,evidence_first,2,0.5,0.5,0.5
-react,none,2,1.0,,
-react,verification_gate,1,1.0,0.0,0.0
-single_shot,evidence_first,4,0.75,0.25,0.25
-single_shot,none,4,1.0,,
+react,evidence_first,7,0.0,0.6,1.0
+react,none,5,0.6,,
+react,verification_gate,7,0.42857142857142855,0.17142857142857143,0.28571428571428575
+single_shot,evidence_first,6,0.0,0.8,1.0
+single_shot,none,15,0.8,,
