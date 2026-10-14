@@ -48,3 +48,7 @@ results/plots/*
 !results/tables/final_table3_defense.csv
 !results/tables/final_table4_behaviour.csv
 !results/tables/final_stats_tests.csv
+
+!results/tables/clean_master_order.csv
+!results/tables/sample_size_progression_clean.csv
+!results/tables/sample_size_progression_mcnemar.csv

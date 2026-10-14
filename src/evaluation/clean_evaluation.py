@@ -81,6 +81,7 @@ def run_clean_eval(
     excluded_cols: list,
     pause_seconds: float = 0.0,
     dataset: str = "real",
+    model: str = "unknown",
 ) -> None:
     results_path = Path(results_path)
     results_path.parent.mkdir(parents=True, exist_ok=True)
@@ -116,6 +117,7 @@ def run_clean_eval(
                 "true_label": row_dict["label"],
                 "predicted_label": result["label"],
                 "rationale": result.get("rationale", ""),
+                "model": model,
             }
             pd.DataFrame([out]).to_csv(results_path, mode="a", header=not results_path.exists(), index=False)
             print(f"[{idx}] {agent_name}: true={out['true_label']} pred={out['predicted_label']}")
@@ -198,6 +200,7 @@ def main() -> None:
     run_clean_eval(
         sample, classifiers, args.results_path,
         config["agent"]["excluded_from_prompt"], config["adversarial"]["pause_seconds"], args.dataset,
+        model=config["agent"]["model"],
     )
     summarize(args.results_path, dataset=args.dataset)
 

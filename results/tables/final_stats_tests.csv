@@ -1,2 +1,2 @@
 test,n_pairs,both_correct,single_shot_only_correct,react_only_correct,both_wrong,statistic,p_value,significant_at_0.05
-"McNemar (single_shot vs react, paired clean accuracy)",150,84,19,10,37,2.206896551724138,0.13739482585580065,False
+"McNemar (single_shot vs react, paired clean accuracy)",180,102,27,10,41,6.918918918918919,0.008528852154051858,True

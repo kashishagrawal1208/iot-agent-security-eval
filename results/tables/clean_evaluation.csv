@@ -1,301 +1,361 @@
-source_index,agent,dataset,true_label,predicted_label,rationale
-51453,single_shot,real,BENIGN,BENIGN,"The flow uses MQTT (port 1883) for standard internal communication between IoT devices, exhibiting normal TCP acknowledgment behavior."
-51453,react,real,BENIGN,BENIGN,"The flow involves local private IP addresses communicating over standard MQTT port 1883, representing normal IoT broker traffic."
-290225,single_shot,real,ATTACK,ATTACK,"The flow combines a TCP source port with a UDP stream identifier, which indicates malformed protocol behavior typical of network scanning or evasion attempts."
-290225,react,real,ATTACK,BENIGN,The source IP 192.168.0.128 is a trusted local address exhibiting standard network flow characteristics without malicious indicators.
-227678,single_shot,real,BENIGN,BENIGN,"The flow shows a standard MQTT PUBLISH message containing telemetry data (temperature and humidity) sent to a local broker, which is typical legitimate IoT behavior."
-227678,react,real,BENIGN,BENIGN,The network flow contains standard MQTT telemetry data publishing temperature and humidity readings between internal local IP addresses.
-79614,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by assigning a UDP stream identifier to a TCP source port, which is characteristic of anomalous or malformed traffic."
-79614,react,real,ATTACK,BENIGN,"The flow properties show TCP source port and UDP stream identifier on a local IP address, indicative of normal local network activity."
-189920,single_shot,real,BENIGN,BENIGN,"The flow shows a standard TCP SYN packet initiating a connection to port 1883, which is the default port for MQTT, a common IoT protocol for internal communication."
-189920,react,real,BENIGN,BENIGN,"The network flow shows a standard TCP SYN packet initiating a connection to port 1883, which is the standard port for MQTT IoT telemetry traffic within a local network."
-220811,single_shot,real,ATTACK,ATTACK,The HTTP traffic contains a classic Bash shellshock exploit (CVE-2014-6278) payload injected via the Referer and User-Agent headers.
-220811,react,real,ATTACK,ATTACK,The HTTP traffic contains a Shellshock exploit payload (CVE-2014-6278) in the Referer and User-Agent headers.
-136569,single_shot,real,BENIGN,BENIGN,"The network flow shows a standard TCP FIN-ACK termination packet on the MQTT port (1883), representing normal connection teardown."
-136569,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.
-88391,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP traffic, which is commonly used for network connectivity testing and diagnostics."
-88391,react,real,ATTACK,BENIGN,The traffic consists of standard ICMP packets directed to a trusted IP address with no indicators of malicious intent.
-219727,single_shot,real,ATTACK,ATTACK,"The flow involves an internal IoT device communicating with an external, potentially malicious IP address using ICMP, which is a common indicator of command-and-control or data exfiltration."
-219727,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion rating and ICMP traffic to external, unverified hosts is often indicative of reconnaissance or command-and-control activity."
-326229,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT, a common protocol for IoT device communication."
-326229,react,real,BENIGN,BENIGN,"The flow involves standard internal communication between private IP addresses using common MQTT (1883) and ephemeral ports, which is typical for IoT device traffic."
-175764,single_shot,real,ATTACK,ATTACK,"The request targets a known vulnerable application path (DVWA) to execute a suspicious file (hack.php), which is indicative of a web-based exploit attempt."
-175764,react,real,ATTACK,ATTACK,"The request targets a known vulnerable application (DVWA) and attempts to access a file named 'hack.php' in the uploads directory, which is indicative of a web shell or exploit attempt."
-181934,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, which is typical for IoT messaging."
-181934,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-298850,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication."
-298850,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for local IoT device communication."
-68263,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a common web service port, consistent with normal local network communication."
-68263,react,real,ATTACK,BENIGN,"The traffic is between two internal private IP addresses on port 80, which is consistent with standard local web communication."
-43522,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission from a common service port (5900, typically VNC) with a standard payload size and valid TCP flags."
-43522,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, 1440 bytes of payload) originating from port 5900, which is commonly associated with VNC (Virtual Network Computing) remote desktop traffic."
-179595,single_shot,real,BENIGN,ATTACK,"The flow originates from port 1883 (MQTT) and contains a TCP RST flag with a low sequence number, suggesting a potential port scanning or connection reset attack."
-179595,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in a local network."
-23221,single_shot,real,ATTACK,ATTACK,The use of the HTTP TRACE method is a common technique for cross-site tracing (XST) attacks and reconnaissance to bypass security controls.
-23221,react,real,ATTACK,ATTACK,The use of the HTTP TRACE method is a common technique for cross-site tracing (XST) attacks and is generally considered a security risk.
-227037,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission from a common service port (5900, typically VNC) with a full-sized payload, which is consistent with legitimate remote desktop traffic."
-227037,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transfer (ACK flag set, significant payload length) consistent with established communication, likely VNC traffic given the source port 5900."
-39917,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, which is typical for IoT messaging."
-39917,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication."
-59272,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication."
-59272,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for local IoT device communication."
-254978,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT traffic (port 1883) between internal devices with normal TCP acknowledgment flags.
-254978,react,real,BENIGN,BENIGN,The traffic originates from a trusted internal IP address and follows standard TCP communication patterns on a common port.
-18592,single_shot,real,ATTACK,ATTACK,"The flow originates from a suspicious external IP address targeting a local private host using ICMP, which is a common indicator of network reconnaissance or scanning."
-18592,react,real,ATTACK,BENIGN,"The source IP has a trusted reputation and the flow consists of standard ICMP traffic, which is typical for network connectivity checks."
-72717,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices, which is typical behavior for closing a legitimate session."
-72717,react,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses, which is typical behavior for legitimate network traffic."
-282125,single_shot,real,ATTACK,ATTACK,"The flow involves an internal IoT device communicating with an external, potentially malicious IP address using ICMP, which is a common indicator of command-and-control or data exfiltration."
-282125,react,real,ATTACK,ATTACK,The destination IP has a moderate suspicion reputation score and the use of ICMP for external communication from an internal host is often indicative of command-and-control or data exfiltration.
-122423,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication."
-122423,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for local IoT device communication."
-90266,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal devices, consistent with typical IoT messaging patterns."
-90266,react,real,BENIGN,BENIGN,The traffic is between two internal private IP addresses on a standard MQTT port (1883) and shows normal TCP acknowledgment behavior.
-51248,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate connection request to a web server on port 80.
-51248,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to a web server on a local network, which is typical legitimate traffic."
-273725,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN initiation to port 1883, which is the default port for legitimate MQTT communication in IoT environments."
-273725,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for internal IoT device communication."
-226998,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is a common indicator of malformed traffic or scanning activity."
-226998,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic."
-316771,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate method for an IoT device to initiate a session with a broker."
-316771,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet between two internal devices, which is typical behavior for IoT communication."
-206352,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client, which is typical legitimate network communication."
-206352,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with a typical client-server response."
-279802,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 200 OK response from an Apache web server, which is typical legitimate network traffic."
-279802,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 200 OK response from a web server (port 80) to a client, which is normal network behavior."
-247717,single_shot,real,ATTACK,ATTACK,"The flow shows a TCP SYN packet originating from a high-numbered port to port 80, which is characteristic of a port scan or reconnaissance attempt."
-247717,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN packet from a local device to a local web server, which is typical behavior for initiating a connection."
-279739,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP request from a local host to a web server, showing typical TCP flag and payload characteristics."
-279739,react,real,ATTACK,BENIGN,The traffic is internal (LAN to LAN) and appears to be standard HTTP communication between two local devices.
-188883,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP echo request/reply traffic, which is typical for network connectivity testing."
-188883,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion reputation score and the flow consists of ICMP traffic, which is commonly used for reconnaissance or tunneling in malicious activities."
-304732,single_shot,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic from a web server (port 80) to a client, consistent with normal web browsing or data retrieval."
-304732,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on a common port, showing no signs of malicious activity."
-85107,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate part of the MQTT protocol handshake between a broker and a client."
-85107,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is normal protocol behavior."
-25479,single_shot,real,ATTACK,ATTACK,"The flow originates from an external public IP address targeting a private internal host using ICMP, which is characteristic of network reconnaissance or scanning."
-25479,react,real,ATTACK,ATTACK,The source IP has a suspicious reputation and unsolicited ICMP traffic directed at an internal host is a common indicator of network reconnaissance.
-218995,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to an MQTT broker on port 1883, which is typical for IoT device communication."
-218995,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for internal IoT device communication."
-146366,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between local devices, consistent with typical IoT messaging."
-146366,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication."
-5024,single_shot,real,BENIGN,ATTACK,"The flow shows a TCP RST flag originating from an MQTT port (1883), which is indicative of an unauthorized connection reset or scanning attempt."
-5024,react,real,BENIGN,BENIGN,"The flow involves internal IP addresses and a TCP RST flag, which is typical for terminating a legitimate connection."
-283435,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate HTTP connection to a local web server.
-283435,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN request from a local device to a local web server, which is typical behavior for internal network communication."
-236675,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate control message used in IoT communication."
-236675,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is typical for IoT communication."
-236962,single_shot,real,ATTACK,ATTACK,"The presence of a large, repetitive payload within a TCP SYN packet is a characteristic indicator of a buffer overflow attempt or malicious exploit injection."
-236962,react,real,ATTACK,ATTACK,"The flow contains a SYN packet (tcp.flags=2) with a large, repetitive payload, which is highly anomalous for a standard TCP handshake initiation."
-258332,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate control message used in IoT communication."
-258332,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is typical for legitimate IoT communication."
-85140,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between two internal devices, which is typical for IoT messaging."
-85140,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication."
-319882,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission with a large payload, consistent with legitimate file transfer or application data exchange."
-319882,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, large payload size) consistent with legitimate application traffic, such as a file transfer or remote session."
-187215,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP traffic, which is commonly used for network connectivity testing and diagnostics."
-187215,react,real,ATTACK,ATTACK,The source IP has a suspicious reputation and unsolicited ICMP traffic directed at an internal host is a common indicator of network reconnaissance or scanning.
-235283,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns."
-235283,react,real,BENIGN,BENIGN,The traffic originates from a trusted internal IP address and uses standard TCP communication patterns consistent with legitimate local network activity.
-115711,single_shot,real,ATTACK,ATTACK,"The flow exhibits a loopback source and destination IP address combined with malformed DNS query data, which is characteristic of scanning or exploitation attempts."
-115711,react,real,ATTACK,ATTACK,"The flow shows a source and destination IP that are identical, which is a characteristic of a loopback or spoofing attempt, combined with suspicious ARP and DNS query patterns."
-145450,single_shot,real,ATTACK,ATTACK,"The flow shows a TCP RST flag originating from a standard web port (80) to a high-numbered destination port, which is characteristic of a port scanning or connection reset attack."
-145450,react,real,ATTACK,ATTACK,"The flow shows a TCP connection reset (RST flag) originating from a local host to a high-numbered port on an external IP, which is characteristic of scanning or unauthorized connection attempts."
-17974,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment from a web server (port 80) to a client, which is typical behavior for legitimate HTTP communication."
-17974,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with normal communication."
-221357,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate part of the MQTT protocol handshake between a broker and a client."
-221357,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is normal behavior for IoT communication."
-132756,single_shot,real,ATTACK,ATTACK,"The high-entropy, non-standard payload on a non-standard port (4321) is characteristic of command-and-control communication or data exfiltration."
-132756,react,real,ATTACK,BENIGN,The traffic is between two private IP addresses (192.168.0.x) and the source IP is considered trusted.
-189453,single_shot,real,ATTACK,ATTACK,The request attempts a path traversal attack to access sensitive system files (/etc/hosts) combined with a server-side include injection payload.
-189453,react,real,ATTACK,ATTACK,The request attempts a path traversal attack to access sensitive system files (/etc/hosts) and includes a Server-Side Include (SSI) injection payload.
-71922,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns."
-71922,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-97687,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a web server port, consistent with normal HTTP communication."
-97687,react,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic between two internal private IP addresses, which is typical for local network communication."
-302026,single_shot,real,ATTACK,ATTACK,"The flow contains a SYN flag combined with a large TCP payload, which is a violation of standard TCP protocol behavior and indicative of an exploit attempt."
-302026,react,real,ATTACK,ATTACK,"The flow shows a TCP SYN packet (connection initiation) containing a large, repetitive payload, which is highly anomalous for a standard HTTP connection request."
-67359,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal devices, consistent with typical IoT messaging."
-67359,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is the standard port for MQTT messaging, indicating normal IoT communication."
-24236,single_shot,real,BENIGN,BENIGN,"The flow exhibits standard TCP communication characteristics, such as a valid ACK flag and a typical payload size, consistent with legitimate data transfer."
-24236,react,real,BENIGN,BENIGN,"The flow shows standard TCP traffic with a large payload size, which is consistent with legitimate data transfer or file transmission."
-70042,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity."
-70042,react,real,ATTACK,BENIGN,"The source IP is a private, trusted internal address and the flow characteristics do not indicate malicious activity."
-276211,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two local devices, consistent with typical IoT messaging."
-276211,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication."
-215446,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate HTTP connection on port 80 between two local devices.
-215446,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN request to port 80 between two internal private IP addresses, which is typical behavior for web traffic."
-55641,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment from a web server (port 80) to a client, which is consistent with normal HTTP communication."
-55641,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with normal communication."
-175521,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT traffic (port 1883) between local devices with normal TCP flag behavior.
-175521,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments."
-261250,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity."
-261250,react,real,ATTACK,BENIGN,"The source IP is a private, internal address with a trusted reputation, and the flow characteristics are consistent with standard local network traffic."
-188197,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, exhibiting normal TCP acknowledgment behavior."
-188197,react,real,BENIGN,BENIGN,"The traffic is internal communication over port 1883 (MQTT), which is standard for IoT device messaging."
-80577,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, which is consistent with normal network communication."
-80577,react,real,ATTACK,BENIGN,The traffic is between two internal private IP addresses and exhibits standard TCP acknowledgment behavior.
-262909,single_shot,real,ATTACK,ATTACK,"The flow originates from an external public IP address targeting a private internal IP address using ICMP, which is characteristic of network reconnaissance or scanning."
-262909,react,real,ATTACK,BENIGN,"The source IP has a trusted reputation and the traffic consists of standard ICMP packets, which are typical for network connectivity testing."
-89668,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client, consistent with normal HTTP communication."
-89668,react,real,ATTACK,BENIGN,The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client within the local network.
-229965,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common web port.
-229965,react,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.
-17559,single_shot,real,BENIGN,BENIGN,"The flow represents standard TCP data transmission from a VNC server (port 5900), which is consistent with legitimate remote desktop activity."
-17559,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transfer (ACK flag set, 1440 bytes of payload) on port 5900, which is commonly used for VNC remote desktop traffic."
-3975,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data reporting temperature and humidity readings between local IoT devices.
-3975,react,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data (temperature and humidity) being sent between two internal devices on the default MQTT port 1883.
-103591,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT telemetry data (temperature and humidity) being published to a local broker, which is typical behavior for IoT sensors."
-103591,react,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data (temperature and humidity) being sent from an IoT device to a local broker.
-41296,single_shot,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common MQTT port.
-41296,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.
-305029,single_shot,real,BENIGN,BENIGN,"The traffic is a standard DNS query directed to a legitimate NTP pool domain, which is common behavior for network-connected devices."
-305029,react,real,BENIGN,BENIGN,The traffic is a standard DNS query for a legitimate NTP pool address (debian.pool.ntp.org) originating from a local network device.
-148938,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT telemetry data reporting temperature and humidity values, which is typical behavior for an IoT sensor."
-148938,react,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data (temperature and humidity) being sent between internal devices on a common IoT port.
-97854,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission from a VNC server (port 5900), which is typical for remote desktop sessions."
-97854,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, 1440 bytes of payload) on port 5900, which is commonly used for VNC remote desktop traffic."
-50284,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is common and legitimate network behavior."
-50284,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is normal network behavior."
-54259,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is a common indicator of malformed traffic or scanning activity."
-54259,react,real,ATTACK,BENIGN,"The source IP is a private, trusted internal address and the flow characteristics do not indicate malicious activity."
-63058,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity."
-63058,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic."
-141566,single_shot,real,ATTACK,BENIGN,"The flow represents standard ICMP echo request/reply traffic between an external host and a local device, which is typical for connectivity testing."
-141566,react,real,ATTACK,BENIGN,"The source IP has a trusted reputation and the traffic consists of standard ICMP packets, which are typical for network connectivity testing."
-294838,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment packet originating from an MQTT broker port (1883), which is typical for legitimate IoT device communication."
-294838,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-87986,single_shot,real,ATTACK,BENIGN,"This is a standard ARP reply packet, which is a normal part of network address resolution."
-87986,react,real,ATTACK,BENIGN,"This is a standard ARP reply packet, which is a normal part of network communication for address resolution."
-78236,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a web server port, consistent with normal HTTP communication."
-78236,react,real,ATTACK,BENIGN,The flow represents standard HTTP traffic between two internal private IP addresses with no indicators of malicious intent.
-5079,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication (port 1883) between two internal devices, consistent with typical IoT messaging patterns."
-5079,react,real,BENIGN,BENIGN,"The traffic is internal communication over port 1883 (MQTT), which is standard for IoT device messaging."
-255286,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate initialization process for IoT device communication."
-255286,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet from a trusted internal device to an MQTT broker, which is typical behavior for IoT communication."
-83345,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between internal devices, showing typical ACK flag behavior."
-83345,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments."
-127635,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN-ACK response from an MQTT broker (port 1883) to a client, which is typical legitimate IoT communication."
-127635,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN-ACK response from a local MQTT broker (port 1883) to a client, which is typical behavior for internal IoT communication."
-74152,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT messaging, and exhibits normal TCP acknowledgment behavior."
-74152,react,real,BENIGN,BENIGN,The flow involves internal private IP addresses communicating over a standard MQTT port (1883) with normal TCP flag behavior.
-272785,single_shot,real,ATTACK,ATTACK,"The source IP address 238.212.78.78 belongs to a multicast range (Class D), which is invalid for a standard unicast ICMP communication to a private host."
-272785,react,real,ATTACK,ATTACK,"The source IP address 238.212.78.78 belongs to a multicast range (224.0.0.0/4), which is invalid for a unicast ICMP communication to a local host."
-108995,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission segment, likely part of a legitimate VNC or remote desktop session given the source port 5900."
-108995,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, large payload size) consistent with legitimate application-level traffic."
-109340,single_shot,real,ATTACK,ATTACK,The presence of a TCP RST flag in a connection originating from a common web port (80) to a high-numbered destination port is indicative of a port scanning or connection reset attack.
-109340,react,real,ATTACK,ATTACK,"The flow shows a TCP connection reset (RST flag) originating from a web server port (80) to a high-numbered destination port, which is characteristic of unauthorized scanning or connection interference."
-179668,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, consistent with normal network communication."
-179668,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on port 80, which is consistent with normal local network communication."
-41017,single_shot,real,ATTACK,BENIGN,"The flow lacks any indicators of malicious intent, such as unusual port usage, high-frequency scanning, or known exploit signatures."
-41017,react,real,ATTACK,BENIGN,"The source IP is a private, trusted internal address and the flow characteristics do not indicate malicious activity."
-284600,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity."
-284600,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic."
-94947,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between two internal devices, showing typical ACK flag behavior."
-94947,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication."
-273127,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is common and legitimate network behavior."
-273127,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from an Apache web server, which is normal network behavior."
-311591,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to an MQTT broker on port 1883, which is typical for IoT device communication."
-311591,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for internal IoT device communication."
-272570,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed packets or scanning activity."
-272570,react,real,ATTACK,BENIGN,"The source IP is a private, trusted local address and the flow characteristics do not indicate malicious activity."
-311477,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) used to gracefully terminate a legitimate IoT communication session.
-311477,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is normal protocol behavior."
-273208,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate connection request to a web server on port 80.
-273208,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN request from a local device to a local web server, which is typical legitimate network behavior."
-32740,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to port 1883, which is the default port for the legitimate MQTT protocol used in IoT communication."
-32740,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for local IoT device communication."
-38081,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is characteristic of malformed packet injection or scanning activity."
-38081,react,real,ATTACK,BENIGN,"The source IP is a private, local address and the traffic pattern does not exhibit clear indicators of malicious activity."
-195911,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal devices, consistent with typical IoT messaging patterns."
-195911,react,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-313041,single_shot,real,ATTACK,ATTACK,"The flow involves an internal IoT device communicating with an external IP address via ICMP, which is a common indicator of command-and-control beaconing or data exfiltration."
-313041,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion reputation score and the flow consists of ICMP traffic, which is commonly used for reconnaissance or command-and-control communication."
-329609,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) closing a legitimate session between local IoT devices.
-329609,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is a normal part of the MQTT protocol lifecycle."
-121849,single_shot,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic from a web server (port 80) to a client, characterized by a typical ACK flag and sequence numbers."
-121849,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with a typical response from a web server."
-332088,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP traffic, which is typically used for network diagnostics like ping and does not inherently indicate malicious activity."
-332088,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion rating and the flow consists of ICMP traffic, which is commonly used for reconnaissance or covert communication in IoT environments."
-116608,single_shot,real,ATTACK,ATTACK,The presence of a TCP RST flag in a flow originating from a common web server port (80) to a high-numbered destination port is indicative of a connection reset or scanning activity.
-116608,react,real,ATTACK,BENIGN,"The flow shows a standard TCP connection reset from a trusted IP address, which is common behavior for terminating legitimate sessions."
-149946,single_shot,real,BENIGN,BENIGN,"The flow represents standard TCP data transmission (ACK flag set, 1440 bytes payload) consistent with typical network communication."
-149946,react,real,BENIGN,BENIGN,"The flow characteristics, including the source port 5900 (commonly used for VNC/remote desktop traffic) and the large payload size, are consistent with legitimate remote management or screen-sharing activity."
-173982,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, showing no signs of malicious intent or anomalous behavior."
-173982,react,real,ATTACK,BENIGN,The traffic is between two internal private IP addresses and exhibits standard TCP acknowledgment behavior.
-203456,single_shot,real,ATTACK,ATTACK,"The request targets a known vulnerable application path (DVWA) to execute a suspicious file (hack.php), which is indicative of a web-based exploit attempt."
-203456,react,real,ATTACK,ATTACK,"The request is accessing a known vulnerable application (DVWA) and attempting to execute a file named 'hack.php' in an uploads directory, which is indicative of a web shell or exploit attempt."
-164760,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment packet originating from a common MQTT port (1883), consistent with typical IoT device communication."
-164760,react,real,BENIGN,BENIGN,The traffic originates from a local private IP address and follows standard TCP communication patterns consistent with internal network activity.
-169926,single_shot,real,BENIGN,ATTACK,The use of port 5900 (VNC) is a common target for unauthorized remote access and brute-force attacks in IoT environments.
-169926,react,real,BENIGN,ATTACK,"The flow is directed to port 5900 (VNC), which is a common target for unauthorized remote access attempts."
-164771,single_shot,real,BENIGN,ATTACK,"The flow originates from port 1883 (MQTT) and immediately sends a TCP RST flag, which is characteristic of unauthorized scanning or connection probing."
-164771,react,real,BENIGN,BENIGN,The flow originates from a trusted internal IP address and the RST flag indicates a standard connection termination.
-84898,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to an MQTT broker on port 1883, which is typical for IoT device communication."
-84898,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt between two internal private IP addresses on the MQTT port (1883), which is typical for IoT device communication."
-317497,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between two internal devices, which is typical for IoT messaging."
-317497,react,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-9389,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 302 redirect response from an Apache web server, which is typical legitimate web traffic."
-9389,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 302 redirect response from an Apache server, which is typical legitimate web traffic."
-249244,single_shot,real,ATTACK,BENIGN,"The traffic shows a standard HTTP response from a Damn Vulnerable Web Application (DVWA) instance, which is a legitimate environment for security testing."
-249244,react,real,ATTACK,BENIGN,"The traffic is a standard HTTP response from a Damn Vulnerable Web Application (DVWA) instance, which is a legitimate educational tool used for security testing."
-227657,single_shot,real,BENIGN,ATTACK,The use of a TCP RST flag on a non-standard high port (63334) originating from an MQTT port (1883) is indicative of a port scanning or connection reset attack.
-227657,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in local network communication."
-293916,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for communication between internal devices, consistent with typical IoT messaging traffic."
-293916,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-24837,single_shot,real,ATTACK,BENIGN,"The flow represents standard ICMP traffic, which is commonly used for network connectivity testing and diagnostics."
-24837,react,real,ATTACK,ATTACK,The source IP has a moderate suspicion reputation and unsolicited ICMP traffic directed at an internal host is often indicative of reconnaissance or scanning activity.
-256489,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity."
-256489,react,real,ATTACK,BENIGN,"The source IP is a private, local network address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic."
-266109,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate part of the MQTT protocol handshake between a broker and a client."
-266109,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet (message type 2) from a broker to a client, which is normal behavior for IoT devices."
-257255,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) from a web server port (80) to a client, which is typical behavior for legitimate HTTP traffic."
-257255,react,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common web port.
-70652,single_shot,real,BENIGN,ATTACK,The presence of a TCP RST flag (tcp.flags=4.0) originating from the MQTT port (1883) suggests an abrupt connection termination or a port scanning/probing attempt.
-70652,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in a local network."
-248549,single_shot,real,ATTACK,BENIGN,"The flow represents standard HTTP GET traffic from a browser to a local web server, which is typical for legitimate network activity."
-248549,react,real,ATTACK,BENIGN,"The flow is a standard HTTP GET request between two internal IP addresses, which is typical behavior for web browsing."
-66310,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate method for an IoT device to initiate a session with a broker."
-66310,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate protocol used for IoT device communication."
-71393,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate HTTP connection on port 80 between two internal devices.
-71393,react,real,ATTACK,BENIGN,The flow represents a standard TCP SYN request to a local web server (port 80) from a trusted internal IP address.
-316429,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT messaging, and exhibits normal TCP acknowledgment behavior."
-316429,react,real,BENIGN,BENIGN,"The flow involves standard internal communication between private IP addresses on a common MQTT port (1883), which is typical for IoT device traffic."
-169699,single_shot,real,ATTACK,ATTACK,"The presence of a large, repetitive payload within a TCP SYN packet is highly anomalous and indicative of a buffer overflow or exploit attempt."
-169699,react,real,ATTACK,ATTACK,"The flow contains a SYN flag combined with a non-empty payload, which is a malformed TCP packet often used in exploit attempts or scanning."
-53924,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity."
-53924,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics do not indicate malicious intent."
-273953,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is a common indicator of malformed traffic or scanning activity."
-273953,react,real,ATTACK,BENIGN,"The source IP is a private, internal address with a trusted reputation, and the flow characteristics do not indicate malicious activity."
-46900,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment from a web server (port 80) to a client, which is typical behavior for legitimate HTTP communication."
-46900,react,real,ATTACK,BENIGN,The flow represents standard TCP traffic between two internal private IP addresses on a common port (80).
-301354,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT communication, and exhibits normal TCP acknowledgment behavior."
-301354,react,real,BENIGN,BENIGN,The flow represents standard internal traffic between two private IP addresses on a common MQTT port (1883).
-245231,single_shot,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common MQTT port.
-245231,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.
-89839,single_shot,real,ATTACK,BENIGN,The flow represents standard HTTP traffic (port 80) with normal TCP acknowledgment flags between internal network hosts.
-89839,react,real,ATTACK,BENIGN,The flow represents a standard TCP acknowledgment packet from a web server (port 80) to a client within the same local network segment.
-46550,single_shot,real,BENIGN,BENIGN,"The traffic uses standard MQTT port 1883 with normal TCP acknowledgment flags, consistent with typical IoT device communication."
-46550,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments."
-154538,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT acknowledgment packet between two internal devices on a common IoT port.
-154538,react,real,BENIGN,BENIGN,The flow represents standard TCP traffic between two internal private IP addresses on a common MQTT port.
-241798,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client, which is typical legitimate network communication."
-241798,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a local web server port (80) to a client, which is typical legitimate network behavior."
-6074,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP FIN-ACK termination sequence for an MQTT connection on port 1883, which is typical for IoT device communication."
-6074,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common MQTT port.
-128414,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by attempting to use a TCP source port within a UDP stream, which is a common indicator of a malformed packet attack or scanning activity."
-128414,react,real,ATTACK,BENIGN,"The source IP is a private, internal address with a trusted reputation, and the flow characteristics do not indicate malicious activity."
-179969,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns."
-179969,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses on a standard MQTT port (1883), which is typical for local IoT device communication."
-293421,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN-ACK handshake response on port 1883, which is typical for MQTT communication between local IoT devices."
-293421,react,real,BENIGN,BENIGN,The flow represents standard TCP communication between two internal private IP addresses on a common MQTT port.
-206431,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a common web service port, consistent with normal network communication."
-206431,react,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic between two internal devices on a local network, showing typical ACK flag behavior."
-208739,single_shot,real,BENIGN,ATTACK,"The flow originates from port 1883 (MQTT) to a high-numbered port with a TCP RST flag set, which is characteristic of unauthorized scanning or connection probing."
-208739,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in local network traffic."
-297872,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment packet originating from a common MQTT port (1883), consistent with normal IoT device communication."
-297872,react,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication."
-295902,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, consistent with normal communication."
-295902,react,real,ATTACK,BENIGN,"The traffic is between two internal private IP addresses and exhibits standard TCP ACK behavior on port 80, which is consistent with normal web communication."
-57506,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns."
-57506,react,real,BENIGN,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on a common port (1883, typically used for MQTT)."
+source_index,agent,dataset,true_label,predicted_label,rationale,model
+51453,single_shot,real,BENIGN,BENIGN,"The flow uses MQTT (port 1883) for standard internal communication between IoT devices, exhibiting normal TCP acknowledgment behavior.",unknown_mixed
+51453,react,real,BENIGN,BENIGN,"The flow involves local private IP addresses communicating over standard MQTT port 1883, representing normal IoT broker traffic.",unknown_mixed
+290225,single_shot,real,ATTACK,ATTACK,"The flow combines a TCP source port with a UDP stream identifier, which indicates malformed protocol behavior typical of network scanning or evasion attempts.",unknown_mixed
+290225,react,real,ATTACK,BENIGN,The source IP 192.168.0.128 is a trusted local address exhibiting standard network flow characteristics without malicious indicators.,unknown_mixed
+227678,single_shot,real,BENIGN,BENIGN,"The flow shows a standard MQTT PUBLISH message containing telemetry data (temperature and humidity) sent to a local broker, which is typical legitimate IoT behavior.",unknown_mixed
+227678,react,real,BENIGN,BENIGN,The network flow contains standard MQTT telemetry data publishing temperature and humidity readings between internal local IP addresses.,unknown_mixed
+79614,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by assigning a UDP stream identifier to a TCP source port, which is characteristic of anomalous or malformed traffic.",unknown_mixed
+79614,react,real,ATTACK,BENIGN,"The flow properties show TCP source port and UDP stream identifier on a local IP address, indicative of normal local network activity.",unknown_mixed
+189920,single_shot,real,BENIGN,BENIGN,"The flow shows a standard TCP SYN packet initiating a connection to port 1883, which is the default port for MQTT, a common IoT protocol for internal communication.",unknown_mixed
+189920,react,real,BENIGN,BENIGN,"The network flow shows a standard TCP SYN packet initiating a connection to port 1883, which is the standard port for MQTT IoT telemetry traffic within a local network.",unknown_mixed
+220811,single_shot,real,ATTACK,ATTACK,The HTTP traffic contains a classic Bash shellshock exploit (CVE-2014-6278) payload injected via the Referer and User-Agent headers.,unknown_mixed
+220811,react,real,ATTACK,ATTACK,The HTTP traffic contains a Shellshock exploit payload (CVE-2014-6278) in the Referer and User-Agent headers.,unknown_mixed
+136569,single_shot,real,BENIGN,BENIGN,"The network flow shows a standard TCP FIN-ACK termination packet on the MQTT port (1883), representing normal connection teardown.",unknown_mixed
+136569,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.,unknown_mixed
+88391,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP traffic, which is commonly used for network connectivity testing and diagnostics.",unknown_mixed
+88391,react,real,ATTACK,BENIGN,The traffic consists of standard ICMP packets directed to a trusted IP address with no indicators of malicious intent.,unknown_mixed
+219727,single_shot,real,ATTACK,ATTACK,"The flow involves an internal IoT device communicating with an external, potentially malicious IP address using ICMP, which is a common indicator of command-and-control or data exfiltration.",unknown_mixed
+219727,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion rating and ICMP traffic to external, unverified hosts is often indicative of reconnaissance or command-and-control activity.",unknown_mixed
+326229,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT, a common protocol for IoT device communication.",unknown_mixed
+326229,react,real,BENIGN,BENIGN,"The flow involves standard internal communication between private IP addresses using common MQTT (1883) and ephemeral ports, which is typical for IoT device traffic.",unknown_mixed
+175764,single_shot,real,ATTACK,ATTACK,"The request targets a known vulnerable application path (DVWA) to execute a suspicious file (hack.php), which is indicative of a web-based exploit attempt.",unknown_mixed
+175764,react,real,ATTACK,ATTACK,"The request targets a known vulnerable application (DVWA) and attempts to access a file named 'hack.php' in the uploads directory, which is indicative of a web shell or exploit attempt.",unknown_mixed
+181934,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, which is typical for IoT messaging.",unknown_mixed
+181934,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+298850,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication.",unknown_mixed
+298850,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for local IoT device communication.",unknown_mixed
+68263,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a common web service port, consistent with normal local network communication.",unknown_mixed
+68263,react,real,ATTACK,BENIGN,"The traffic is between two internal private IP addresses on port 80, which is consistent with standard local web communication.",unknown_mixed
+43522,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission from a common service port (5900, typically VNC) with a standard payload size and valid TCP flags.",unknown_mixed
+43522,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, 1440 bytes of payload) originating from port 5900, which is commonly associated with VNC (Virtual Network Computing) remote desktop traffic.",unknown_mixed
+179595,single_shot,real,BENIGN,ATTACK,"The flow originates from port 1883 (MQTT) and contains a TCP RST flag with a low sequence number, suggesting a potential port scanning or connection reset attack.",unknown_mixed
+179595,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in a local network.",unknown_mixed
+23221,single_shot,real,ATTACK,ATTACK,The use of the HTTP TRACE method is a common technique for cross-site tracing (XST) attacks and reconnaissance to bypass security controls.,unknown_mixed
+23221,react,real,ATTACK,ATTACK,The use of the HTTP TRACE method is a common technique for cross-site tracing (XST) attacks and is generally considered a security risk.,unknown_mixed
+227037,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission from a common service port (5900, typically VNC) with a full-sized payload, which is consistent with legitimate remote desktop traffic.",unknown_mixed
+227037,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transfer (ACK flag set, significant payload length) consistent with established communication, likely VNC traffic given the source port 5900.",unknown_mixed
+39917,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, which is typical for IoT messaging.",unknown_mixed
+39917,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication.",unknown_mixed
+59272,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication.",unknown_mixed
+59272,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for local IoT device communication.",unknown_mixed
+254978,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT traffic (port 1883) between internal devices with normal TCP acknowledgment flags.,unknown_mixed
+254978,react,real,BENIGN,BENIGN,The traffic originates from a trusted internal IP address and follows standard TCP communication patterns on a common port.,unknown_mixed
+18592,single_shot,real,ATTACK,ATTACK,"The flow originates from a suspicious external IP address targeting a local private host using ICMP, which is a common indicator of network reconnaissance or scanning.",unknown_mixed
+18592,react,real,ATTACK,BENIGN,"The source IP has a trusted reputation and the flow consists of standard ICMP traffic, which is typical for network connectivity checks.",unknown_mixed
+72717,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices, which is typical behavior for closing a legitimate session.",unknown_mixed
+72717,react,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses, which is typical behavior for legitimate network traffic.",unknown_mixed
+282125,single_shot,real,ATTACK,ATTACK,"The flow involves an internal IoT device communicating with an external, potentially malicious IP address using ICMP, which is a common indicator of command-and-control or data exfiltration.",unknown_mixed
+282125,react,real,ATTACK,ATTACK,The destination IP has a moderate suspicion reputation score and the use of ICMP for external communication from an internal host is often indicative of command-and-control or data exfiltration.,unknown_mixed
+122423,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication.",unknown_mixed
+122423,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for local IoT device communication.",unknown_mixed
+90266,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+90266,react,real,BENIGN,BENIGN,The traffic is between two internal private IP addresses on a standard MQTT port (1883) and shows normal TCP acknowledgment behavior.,unknown_mixed
+51248,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate connection request to a web server on port 80.,unknown_mixed
+51248,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to a web server on a local network, which is typical legitimate traffic.",unknown_mixed
+273725,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN initiation to port 1883, which is the default port for legitimate MQTT communication in IoT environments.",unknown_mixed
+273725,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for internal IoT device communication.",unknown_mixed
+226998,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+226998,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic.",unknown_mixed
+316771,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate method for an IoT device to initiate a session with a broker.",unknown_mixed
+316771,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet between two internal devices, which is typical behavior for IoT communication.",unknown_mixed
+206352,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client, which is typical legitimate network communication.",unknown_mixed
+206352,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with a typical client-server response.",unknown_mixed
+279802,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 200 OK response from an Apache web server, which is typical legitimate network traffic.",unknown_mixed
+279802,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 200 OK response from a web server (port 80) to a client, which is normal network behavior.",unknown_mixed
+247717,single_shot,real,ATTACK,ATTACK,"The flow shows a TCP SYN packet originating from a high-numbered port to port 80, which is characteristic of a port scan or reconnaissance attempt.",unknown_mixed
+247717,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN packet from a local device to a local web server, which is typical behavior for initiating a connection.",unknown_mixed
+279739,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP request from a local host to a web server, showing typical TCP flag and payload characteristics.",unknown_mixed
+279739,react,real,ATTACK,BENIGN,The traffic is internal (LAN to LAN) and appears to be standard HTTP communication between two local devices.,unknown_mixed
+188883,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP echo request/reply traffic, which is typical for network connectivity testing.",unknown_mixed
+188883,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion reputation score and the flow consists of ICMP traffic, which is commonly used for reconnaissance or tunneling in malicious activities.",unknown_mixed
+304732,single_shot,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic from a web server (port 80) to a client, consistent with normal web browsing or data retrieval.",unknown_mixed
+304732,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on a common port, showing no signs of malicious activity.",unknown_mixed
+85107,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate part of the MQTT protocol handshake between a broker and a client.",unknown_mixed
+85107,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is normal protocol behavior.",unknown_mixed
+25479,single_shot,real,ATTACK,ATTACK,"The flow originates from an external public IP address targeting a private internal host using ICMP, which is characteristic of network reconnaissance or scanning.",unknown_mixed
+25479,react,real,ATTACK,ATTACK,The source IP has a suspicious reputation and unsolicited ICMP traffic directed at an internal host is a common indicator of network reconnaissance.,unknown_mixed
+218995,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to an MQTT broker on port 1883, which is typical for IoT device communication.",unknown_mixed
+218995,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for internal IoT device communication.",unknown_mixed
+146366,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between local devices, consistent with typical IoT messaging.",unknown_mixed
+146366,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication.",unknown_mixed
+5024,single_shot,real,BENIGN,ATTACK,"The flow shows a TCP RST flag originating from an MQTT port (1883), which is indicative of an unauthorized connection reset or scanning attempt.",unknown_mixed
+5024,react,real,BENIGN,BENIGN,"The flow involves internal IP addresses and a TCP RST flag, which is typical for terminating a legitimate connection.",unknown_mixed
+283435,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate HTTP connection to a local web server.,unknown_mixed
+283435,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN request from a local device to a local web server, which is typical behavior for internal network communication.",unknown_mixed
+236675,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate control message used in IoT communication.",unknown_mixed
+236675,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is typical for IoT communication.",unknown_mixed
+236962,single_shot,real,ATTACK,ATTACK,"The presence of a large, repetitive payload within a TCP SYN packet is a characteristic indicator of a buffer overflow attempt or malicious exploit injection.",unknown_mixed
+236962,react,real,ATTACK,ATTACK,"The flow contains a SYN packet (tcp.flags=2) with a large, repetitive payload, which is highly anomalous for a standard TCP handshake initiation.",unknown_mixed
+258332,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate control message used in IoT communication.",unknown_mixed
+258332,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is typical for legitimate IoT communication.",unknown_mixed
+85140,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between two internal devices, which is typical for IoT messaging.",unknown_mixed
+85140,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication.",unknown_mixed
+319882,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission with a large payload, consistent with legitimate file transfer or application data exchange.",unknown_mixed
+319882,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, large payload size) consistent with legitimate application traffic, such as a file transfer or remote session.",unknown_mixed
+187215,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP traffic, which is commonly used for network connectivity testing and diagnostics.",unknown_mixed
+187215,react,real,ATTACK,ATTACK,The source IP has a suspicious reputation and unsolicited ICMP traffic directed at an internal host is a common indicator of network reconnaissance or scanning.,unknown_mixed
+235283,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+235283,react,real,BENIGN,BENIGN,The traffic originates from a trusted internal IP address and uses standard TCP communication patterns consistent with legitimate local network activity.,unknown_mixed
+115711,single_shot,real,ATTACK,ATTACK,"The flow exhibits a loopback source and destination IP address combined with malformed DNS query data, which is characteristic of scanning or exploitation attempts.",unknown_mixed
+115711,react,real,ATTACK,ATTACK,"The flow shows a source and destination IP that are identical, which is a characteristic of a loopback or spoofing attempt, combined with suspicious ARP and DNS query patterns.",unknown_mixed
+145450,single_shot,real,ATTACK,ATTACK,"The flow shows a TCP RST flag originating from a standard web port (80) to a high-numbered destination port, which is characteristic of a port scanning or connection reset attack.",unknown_mixed
+145450,react,real,ATTACK,ATTACK,"The flow shows a TCP connection reset (RST flag) originating from a local host to a high-numbered port on an external IP, which is characteristic of scanning or unauthorized connection attempts.",unknown_mixed
+17974,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment from a web server (port 80) to a client, which is typical behavior for legitimate HTTP communication.",unknown_mixed
+17974,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with normal communication.",unknown_mixed
+221357,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate part of the MQTT protocol handshake between a broker and a client.",unknown_mixed
+221357,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK message between two internal devices, which is normal behavior for IoT communication.",unknown_mixed
+132756,single_shot,real,ATTACK,ATTACK,"The high-entropy, non-standard payload on a non-standard port (4321) is characteristic of command-and-control communication or data exfiltration.",unknown_mixed
+132756,react,real,ATTACK,BENIGN,The traffic is between two private IP addresses (192.168.0.x) and the source IP is considered trusted.,unknown_mixed
+189453,single_shot,real,ATTACK,ATTACK,The request attempts a path traversal attack to access sensitive system files (/etc/hosts) combined with a server-side include injection payload.,unknown_mixed
+189453,react,real,ATTACK,ATTACK,The request attempts a path traversal attack to access sensitive system files (/etc/hosts) and includes a Server-Side Include (SSI) injection payload.,unknown_mixed
+71922,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+71922,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+97687,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a web server port, consistent with normal HTTP communication.",unknown_mixed
+97687,react,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic between two internal private IP addresses, which is typical for local network communication.",unknown_mixed
+302026,single_shot,real,ATTACK,ATTACK,"The flow contains a SYN flag combined with a large TCP payload, which is a violation of standard TCP protocol behavior and indicative of an exploit attempt.",unknown_mixed
+302026,react,real,ATTACK,ATTACK,"The flow shows a TCP SYN packet (connection initiation) containing a large, repetitive payload, which is highly anomalous for a standard HTTP connection request.",unknown_mixed
+67359,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal devices, consistent with typical IoT messaging.",unknown_mixed
+67359,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is the standard port for MQTT messaging, indicating normal IoT communication.",unknown_mixed
+24236,single_shot,real,BENIGN,BENIGN,"The flow exhibits standard TCP communication characteristics, such as a valid ACK flag and a typical payload size, consistent with legitimate data transfer.",unknown_mixed
+24236,react,real,BENIGN,BENIGN,"The flow shows standard TCP traffic with a large payload size, which is consistent with legitimate data transfer or file transmission.",unknown_mixed
+70042,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+70042,react,real,ATTACK,BENIGN,"The source IP is a private, trusted internal address and the flow characteristics do not indicate malicious activity.",unknown_mixed
+276211,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two local devices, consistent with typical IoT messaging.",unknown_mixed
+276211,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication.",unknown_mixed
+215446,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate HTTP connection on port 80 between two local devices.,unknown_mixed
+215446,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN request to port 80 between two internal private IP addresses, which is typical behavior for web traffic.",unknown_mixed
+55641,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment from a web server (port 80) to a client, which is consistent with normal HTTP communication.",unknown_mixed
+55641,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with normal communication.",unknown_mixed
+175521,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT traffic (port 1883) between local devices with normal TCP flag behavior.,unknown_mixed
+175521,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments.",unknown_mixed
+261250,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+261250,react,real,ATTACK,BENIGN,"The source IP is a private, internal address with a trusted reputation, and the flow characteristics are consistent with standard local network traffic.",unknown_mixed
+188197,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, exhibiting normal TCP acknowledgment behavior.",unknown_mixed
+188197,react,real,BENIGN,BENIGN,"The traffic is internal communication over port 1883 (MQTT), which is standard for IoT device messaging.",unknown_mixed
+80577,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, which is consistent with normal network communication.",unknown_mixed
+80577,react,real,ATTACK,BENIGN,The traffic is between two internal private IP addresses and exhibits standard TCP acknowledgment behavior.,unknown_mixed
+262909,single_shot,real,ATTACK,ATTACK,"The flow originates from an external public IP address targeting a private internal IP address using ICMP, which is characteristic of network reconnaissance or scanning.",unknown_mixed
+262909,react,real,ATTACK,BENIGN,"The source IP has a trusted reputation and the traffic consists of standard ICMP packets, which are typical for network connectivity testing.",unknown_mixed
+89668,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client, consistent with normal HTTP communication.",unknown_mixed
+89668,react,real,ATTACK,BENIGN,The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client within the local network.,unknown_mixed
+229965,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common web port.,unknown_mixed
+229965,react,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.,unknown_mixed
+17559,single_shot,real,BENIGN,BENIGN,"The flow represents standard TCP data transmission from a VNC server (port 5900), which is consistent with legitimate remote desktop activity.",unknown_mixed
+17559,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transfer (ACK flag set, 1440 bytes of payload) on port 5900, which is commonly used for VNC remote desktop traffic.",unknown_mixed
+3975,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data reporting temperature and humidity readings between local IoT devices.,unknown_mixed
+3975,react,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data (temperature and humidity) being sent between two internal devices on the default MQTT port 1883.,unknown_mixed
+103591,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT telemetry data (temperature and humidity) being published to a local broker, which is typical behavior for IoT sensors.",unknown_mixed
+103591,react,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data (temperature and humidity) being sent from an IoT device to a local broker.,unknown_mixed
+41296,single_shot,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common MQTT port.,unknown_mixed
+41296,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.,unknown_mixed
+305029,single_shot,real,BENIGN,BENIGN,"The traffic is a standard DNS query directed to a legitimate NTP pool domain, which is common behavior for network-connected devices.",unknown_mixed
+305029,react,real,BENIGN,BENIGN,The traffic is a standard DNS query for a legitimate NTP pool address (debian.pool.ntp.org) originating from a local network device.,unknown_mixed
+148938,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT telemetry data reporting temperature and humidity values, which is typical behavior for an IoT sensor.",unknown_mixed
+148938,react,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data (temperature and humidity) being sent between internal devices on a common IoT port.,unknown_mixed
+97854,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission from a VNC server (port 5900), which is typical for remote desktop sessions.",unknown_mixed
+97854,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, 1440 bytes of payload) on port 5900, which is commonly used for VNC remote desktop traffic.",unknown_mixed
+50284,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is common and legitimate network behavior.",unknown_mixed
+50284,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is normal network behavior.",unknown_mixed
+54259,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+54259,react,real,ATTACK,BENIGN,"The source IP is a private, trusted internal address and the flow characteristics do not indicate malicious activity.",unknown_mixed
+63058,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+63058,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic.",unknown_mixed
+141566,single_shot,real,ATTACK,BENIGN,"The flow represents standard ICMP echo request/reply traffic between an external host and a local device, which is typical for connectivity testing.",unknown_mixed
+141566,react,real,ATTACK,BENIGN,"The source IP has a trusted reputation and the traffic consists of standard ICMP packets, which are typical for network connectivity testing.",unknown_mixed
+294838,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment packet originating from an MQTT broker port (1883), which is typical for legitimate IoT device communication.",unknown_mixed
+294838,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+87986,single_shot,real,ATTACK,BENIGN,"This is a standard ARP reply packet, which is a normal part of network address resolution.",unknown_mixed
+87986,react,real,ATTACK,BENIGN,"This is a standard ARP reply packet, which is a normal part of network communication for address resolution.",unknown_mixed
+78236,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a web server port, consistent with normal HTTP communication.",unknown_mixed
+78236,react,real,ATTACK,BENIGN,The flow represents standard HTTP traffic between two internal private IP addresses with no indicators of malicious intent.,unknown_mixed
+5079,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication (port 1883) between two internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+5079,react,real,BENIGN,BENIGN,"The traffic is internal communication over port 1883 (MQTT), which is standard for IoT device messaging.",unknown_mixed
+255286,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate initialization process for IoT device communication.",unknown_mixed
+255286,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet from a trusted internal device to an MQTT broker, which is typical behavior for IoT communication.",unknown_mixed
+83345,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between internal devices, showing typical ACK flag behavior.",unknown_mixed
+83345,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments.",unknown_mixed
+127635,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN-ACK response from an MQTT broker (port 1883) to a client, which is typical legitimate IoT communication.",unknown_mixed
+127635,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN-ACK response from a local MQTT broker (port 1883) to a client, which is typical behavior for internal IoT communication.",unknown_mixed
+74152,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT messaging, and exhibits normal TCP acknowledgment behavior.",unknown_mixed
+74152,react,real,BENIGN,BENIGN,The flow involves internal private IP addresses communicating over a standard MQTT port (1883) with normal TCP flag behavior.,unknown_mixed
+272785,single_shot,real,ATTACK,ATTACK,"The source IP address 238.212.78.78 belongs to a multicast range (Class D), which is invalid for a standard unicast ICMP communication to a private host.",unknown_mixed
+272785,react,real,ATTACK,ATTACK,"The source IP address 238.212.78.78 belongs to a multicast range (224.0.0.0/4), which is invalid for a unicast ICMP communication to a local host.",unknown_mixed
+108995,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission segment, likely part of a legitimate VNC or remote desktop session given the source port 5900.",unknown_mixed
+108995,react,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission (ACK flag set, large payload size) consistent with legitimate application-level traffic.",unknown_mixed
+109340,single_shot,real,ATTACK,ATTACK,The presence of a TCP RST flag in a connection originating from a common web port (80) to a high-numbered destination port is indicative of a port scanning or connection reset attack.,unknown_mixed
+109340,react,real,ATTACK,ATTACK,"The flow shows a TCP connection reset (RST flag) originating from a web server port (80) to a high-numbered destination port, which is characteristic of unauthorized scanning or connection interference.",unknown_mixed
+179668,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, consistent with normal network communication.",unknown_mixed
+179668,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on port 80, which is consistent with normal local network communication.",unknown_mixed
+41017,single_shot,real,ATTACK,BENIGN,"The flow lacks any indicators of malicious intent, such as unusual port usage, high-frequency scanning, or known exploit signatures.",unknown_mixed
+41017,react,real,ATTACK,BENIGN,"The source IP is a private, trusted internal address and the flow characteristics do not indicate malicious activity.",unknown_mixed
+284600,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+284600,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic.",unknown_mixed
+94947,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between two internal devices, showing typical ACK flag behavior.",unknown_mixed
+94947,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses using the standard MQTT port (1883), which is typical for IoT device communication.",unknown_mixed
+273127,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is common and legitimate network behavior.",unknown_mixed
+273127,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from an Apache web server, which is normal network behavior.",unknown_mixed
+311591,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to an MQTT broker on port 1883, which is typical for IoT device communication.",unknown_mixed
+311591,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for internal IoT device communication.",unknown_mixed
+272570,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed packets or scanning activity.",unknown_mixed
+272570,react,real,ATTACK,BENIGN,"The source IP is a private, trusted local address and the flow characteristics do not indicate malicious activity.",unknown_mixed
+311477,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) used to gracefully terminate a legitimate IoT communication session.,unknown_mixed
+311477,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is normal protocol behavior.",unknown_mixed
+273208,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate connection request to a web server on port 80.,unknown_mixed
+273208,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN request from a local device to a local web server, which is typical legitimate network behavior.",unknown_mixed
+32740,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to port 1883, which is the default port for the legitimate MQTT protocol used in IoT communication.",unknown_mixed
+32740,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt to port 1883 (MQTT), which is typical for local IoT device communication.",unknown_mixed
+38081,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is characteristic of malformed packet injection or scanning activity.",unknown_mixed
+38081,react,real,ATTACK,BENIGN,"The source IP is a private, local address and the traffic pattern does not exhibit clear indicators of malicious activity.",unknown_mixed
+195911,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+195911,react,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+313041,single_shot,real,ATTACK,ATTACK,"The flow involves an internal IoT device communicating with an external IP address via ICMP, which is a common indicator of command-and-control beaconing or data exfiltration.",unknown_mixed
+313041,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion reputation score and the flow consists of ICMP traffic, which is commonly used for reconnaissance or command-and-control communication.",unknown_mixed
+329609,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) closing a legitimate session between local IoT devices.,unknown_mixed
+329609,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is a normal part of the MQTT protocol lifecycle.",unknown_mixed
+121849,single_shot,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic from a web server (port 80) to a client, characterized by a typical ACK flag and sequence numbers.",unknown_mixed
+121849,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses, consistent with a typical response from a web server.",unknown_mixed
+332088,single_shot,real,ATTACK,BENIGN,"The flow consists of standard ICMP traffic, which is typically used for network diagnostics like ping and does not inherently indicate malicious activity.",unknown_mixed
+332088,react,real,ATTACK,ATTACK,"The destination IP has a moderate suspicion rating and the flow consists of ICMP traffic, which is commonly used for reconnaissance or covert communication in IoT environments.",unknown_mixed
+116608,single_shot,real,ATTACK,ATTACK,The presence of a TCP RST flag in a flow originating from a common web server port (80) to a high-numbered destination port is indicative of a connection reset or scanning activity.,unknown_mixed
+116608,react,real,ATTACK,BENIGN,"The flow shows a standard TCP connection reset from a trusted IP address, which is common behavior for terminating legitimate sessions.",unknown_mixed
+149946,single_shot,real,BENIGN,BENIGN,"The flow represents standard TCP data transmission (ACK flag set, 1440 bytes payload) consistent with typical network communication.",unknown_mixed
+149946,react,real,BENIGN,BENIGN,"The flow characteristics, including the source port 5900 (commonly used for VNC/remote desktop traffic) and the large payload size, are consistent with legitimate remote management or screen-sharing activity.",unknown_mixed
+173982,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, showing no signs of malicious intent or anomalous behavior.",unknown_mixed
+173982,react,real,ATTACK,BENIGN,The traffic is between two internal private IP addresses and exhibits standard TCP acknowledgment behavior.,unknown_mixed
+203456,single_shot,real,ATTACK,ATTACK,"The request targets a known vulnerable application path (DVWA) to execute a suspicious file (hack.php), which is indicative of a web-based exploit attempt.",unknown_mixed
+203456,react,real,ATTACK,ATTACK,"The request is accessing a known vulnerable application (DVWA) and attempting to execute a file named 'hack.php' in an uploads directory, which is indicative of a web shell or exploit attempt.",unknown_mixed
+164760,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment packet originating from a common MQTT port (1883), consistent with typical IoT device communication.",unknown_mixed
+164760,react,real,BENIGN,BENIGN,The traffic originates from a local private IP address and follows standard TCP communication patterns consistent with internal network activity.,unknown_mixed
+169926,single_shot,real,BENIGN,ATTACK,The use of port 5900 (VNC) is a common target for unauthorized remote access and brute-force attacks in IoT environments.,unknown_mixed
+169926,react,real,BENIGN,ATTACK,"The flow is directed to port 5900 (VNC), which is a common target for unauthorized remote access attempts.",unknown_mixed
+164771,single_shot,real,BENIGN,ATTACK,"The flow originates from port 1883 (MQTT) and immediately sends a TCP RST flag, which is characteristic of unauthorized scanning or connection probing.",unknown_mixed
+164771,react,real,BENIGN,BENIGN,The flow originates from a trusted internal IP address and the RST flag indicates a standard connection termination.,unknown_mixed
+84898,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN packet initiating a connection to an MQTT broker on port 1883, which is typical for IoT device communication.",unknown_mixed
+84898,react,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN connection attempt between two internal private IP addresses on the MQTT port (1883), which is typical for IoT device communication.",unknown_mixed
+317497,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT communication on port 1883 between two internal devices, which is typical for IoT messaging.",unknown_mixed
+317497,react,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+9389,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 302 redirect response from an Apache web server, which is typical legitimate web traffic.",unknown_mixed
+9389,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 302 redirect response from an Apache server, which is typical legitimate web traffic.",unknown_mixed
+249244,single_shot,real,ATTACK,BENIGN,"The traffic shows a standard HTTP response from a Damn Vulnerable Web Application (DVWA) instance, which is a legitimate environment for security testing.",unknown_mixed
+249244,react,real,ATTACK,BENIGN,"The traffic is a standard HTTP response from a Damn Vulnerable Web Application (DVWA) instance, which is a legitimate educational tool used for security testing.",unknown_mixed
+227657,single_shot,real,BENIGN,ATTACK,The use of a TCP RST flag on a non-standard high port (63334) originating from an MQTT port (1883) is indicative of a port scanning or connection reset attack.,unknown_mixed
+227657,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in local network communication.",unknown_mixed
+293916,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for communication between internal devices, consistent with typical IoT messaging traffic.",unknown_mixed
+293916,react,real,BENIGN,BENIGN,"The flow involves standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+24837,single_shot,real,ATTACK,BENIGN,"The flow represents standard ICMP traffic, which is commonly used for network connectivity testing and diagnostics.",unknown_mixed
+24837,react,real,ATTACK,ATTACK,The source IP has a moderate suspicion reputation and unsolicited ICMP traffic directed at an internal host is often indicative of reconnaissance or scanning activity.,unknown_mixed
+256489,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+256489,react,real,ATTACK,BENIGN,"The source IP is a private, local network address with a trusted reputation, and the flow characteristics are consistent with standard internal network traffic.",unknown_mixed
+266109,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet, which is a legitimate part of the MQTT protocol handshake between a broker and a client.",unknown_mixed
+266109,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNACK packet (message type 2) from a broker to a client, which is normal behavior for IoT devices.",unknown_mixed
+257255,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) from a web server port (80) to a client, which is typical behavior for legitimate HTTP traffic.",unknown_mixed
+257255,react,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common web port.,unknown_mixed
+70652,single_shot,real,BENIGN,ATTACK,The presence of a TCP RST flag (tcp.flags=4.0) originating from the MQTT port (1883) suggests an abrupt connection termination or a port scanning/probing attempt.,unknown_mixed
+70652,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in a local network.",unknown_mixed
+248549,single_shot,real,ATTACK,BENIGN,"The flow represents standard HTTP GET traffic from a browser to a local web server, which is typical for legitimate network activity.",unknown_mixed
+248549,react,real,ATTACK,BENIGN,"The flow is a standard HTTP GET request between two internal IP addresses, which is typical behavior for web browsing.",unknown_mixed
+66310,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate method for an IoT device to initiate a session with a broker.",unknown_mixed
+66310,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT CONNECT packet, which is a legitimate protocol used for IoT device communication.",unknown_mixed
+71393,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP SYN packet initiating a legitimate HTTP connection on port 80 between two internal devices.,unknown_mixed
+71393,react,real,ATTACK,BENIGN,The flow represents a standard TCP SYN request to a local web server (port 80) from a trusted internal IP address.,unknown_mixed
+316429,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT messaging, and exhibits normal TCP acknowledgment behavior.",unknown_mixed
+316429,react,real,BENIGN,BENIGN,"The flow involves standard internal communication between private IP addresses on a common MQTT port (1883), which is typical for IoT device traffic.",unknown_mixed
+169699,single_shot,real,ATTACK,ATTACK,"The presence of a large, repetitive payload within a TCP SYN packet is highly anomalous and indicative of a buffer overflow or exploit attempt.",unknown_mixed
+169699,react,real,ATTACK,ATTACK,"The flow contains a SYN flag combined with a non-empty payload, which is a malformed TCP packet often used in exploit attempts or scanning.",unknown_mixed
+53924,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream identifier, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+53924,react,real,ATTACK,BENIGN,"The source IP is a private, local address with a trusted reputation, and the flow characteristics do not indicate malicious intent.",unknown_mixed
+273953,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by associating a TCP source port with a UDP stream index, which is a common indicator of malformed traffic or scanning activity.",unknown_mixed
+273953,react,real,ATTACK,BENIGN,"The source IP is a private, internal address with a trusted reputation, and the flow characteristics do not indicate malicious activity.",unknown_mixed
+46900,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment from a web server (port 80) to a client, which is typical behavior for legitimate HTTP communication.",unknown_mixed
+46900,react,real,ATTACK,BENIGN,The flow represents standard TCP traffic between two internal private IP addresses on a common port (80).,unknown_mixed
+301354,single_shot,real,BENIGN,BENIGN,"The flow uses port 1883, which is the standard port for MQTT communication, and exhibits normal TCP acknowledgment behavior.",unknown_mixed
+301354,react,real,BENIGN,BENIGN,The flow represents standard internal traffic between two private IP addresses on a common MQTT port (1883).,unknown_mixed
+245231,single_shot,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common MQTT port.,unknown_mixed
+245231,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common port.,unknown_mixed
+89839,single_shot,real,ATTACK,BENIGN,The flow represents standard HTTP traffic (port 80) with normal TCP acknowledgment flags between internal network hosts.,unknown_mixed
+89839,react,real,ATTACK,BENIGN,The flow represents a standard TCP acknowledgment packet from a web server (port 80) to a client within the same local network segment.,unknown_mixed
+46550,single_shot,real,BENIGN,BENIGN,"The traffic uses standard MQTT port 1883 with normal TCP acknowledgment flags, consistent with typical IoT device communication.",unknown_mixed
+46550,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments.",unknown_mixed
+154538,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT acknowledgment packet between two internal devices on a common IoT port.,unknown_mixed
+154538,react,real,BENIGN,BENIGN,The flow represents standard TCP traffic between two internal private IP addresses on a common MQTT port.,unknown_mixed
+241798,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a web server (port 80) to a client, which is typical legitimate network communication.",unknown_mixed
+241798,react,real,ATTACK,BENIGN,"The flow represents a standard TCP SYN-ACK response from a local web server port (80) to a client, which is typical legitimate network behavior.",unknown_mixed
+6074,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP FIN-ACK termination sequence for an MQTT connection on port 1883, which is typical for IoT device communication.",unknown_mixed
+6074,react,real,BENIGN,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses on a common MQTT port.,unknown_mixed
+128414,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by attempting to use a TCP source port within a UDP stream, which is a common indicator of a malformed packet attack or scanning activity.",unknown_mixed
+128414,react,real,ATTACK,BENIGN,"The source IP is a private, internal address with a trusted reputation, and the flow characteristics do not indicate malicious activity.",unknown_mixed
+179969,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+179969,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses on a standard MQTT port (1883), which is typical for local IoT device communication.",unknown_mixed
+293421,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP SYN-ACK handshake response on port 1883, which is typical for MQTT communication between local IoT devices.",unknown_mixed
+293421,react,real,BENIGN,BENIGN,The flow represents standard TCP communication between two internal private IP addresses on a common MQTT port.,unknown_mixed
+206431,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet directed at a common web service port, consistent with normal network communication.",unknown_mixed
+206431,react,real,ATTACK,BENIGN,"The flow represents standard HTTP traffic between two internal devices on a local network, showing typical ACK flag behavior.",unknown_mixed
+208739,single_shot,real,BENIGN,ATTACK,"The flow originates from port 1883 (MQTT) to a high-numbered port with a TCP RST flag set, which is characteristic of unauthorized scanning or connection probing.",unknown_mixed
+208739,react,real,BENIGN,BENIGN,"The flow involves internal private IP addresses and a TCP RST flag, which is typical for normal connection termination in local network traffic.",unknown_mixed
+297872,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment packet originating from a common MQTT port (1883), consistent with normal IoT device communication.",unknown_mixed
+297872,react,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between two internal private IP addresses, which is typical for IoT device communication.",unknown_mixed
+295902,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet between two internal devices, consistent with normal communication.",unknown_mixed
+295902,react,real,ATTACK,BENIGN,"The traffic is between two internal private IP addresses and exhibits standard TCP ACK behavior on port 80, which is consistent with normal web communication.",unknown_mixed
+57506,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, consistent with typical IoT messaging patterns.",unknown_mixed
+57506,react,real,BENIGN,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on a common port (1883, typically used for MQTT).",unknown_mixed
+222026,single_shot,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is common and legitimate network behavior.",gemini-3.1-flash-lite
+222026,react,real,ATTACK,BENIGN,"The flow represents a standard HTTP 404 Not Found error response from a web server, which is normal network behavior.",gemini-3.1-flash-lite
+204643,single_shot,real,ATTACK,BENIGN,The flow represents a standard TCP connection termination (FIN/ACK) between two internal devices on a common web port.,gemini-3.1-flash-lite
+204643,react,real,ATTACK,BENIGN,"The flow represents a standard TCP connection termination (FIN/ACK) between two internal private IP addresses, which is typical behavior for legitimate network communication.",gemini-3.1-flash-lite
+214378,single_shot,real,ATTACK,ATTACK,The presence of a TCP RST flag on a connection originating from port 80 to a non-standard destination port suggests a potential port scanning or connection-resetting reconnaissance attempt.,gemini-3.1-flash-lite
+214378,react,real,ATTACK,BENIGN,"The flow involves internal IP addresses and a TCP RST flag, which is typical for terminating a legitimate connection.",gemini-3.1-flash-lite
+13886,single_shot,real,ATTACK,ATTACK,"The flow originates from a known malicious external IP address targeting a local private host using ICMP, which is a common indicator of reconnaissance or a ping-based attack.",gemini-3.1-flash-lite
+13886,react,real,ATTACK,ATTACK,The source IP has a suspicious reputation and unsolicited ICMP traffic directed at an internal host is a common indicator of network reconnaissance or scanning.,gemini-3.1-flash-lite
+15988,single_shot,real,ATTACK,ATTACK,The flow exhibits a protocol mismatch by using a TCP source port while being categorized under a UDP stream index.,gemini-3.1-flash-lite
+15988,react,real,ATTACK,BENIGN,"The source IP is a private, local address and the traffic pattern does not exhibit any clear indicators of malicious activity.",gemini-3.1-flash-lite
+175015,single_shot,real,ATTACK,ATTACK,"The flow shows a TCP RST flag originating from a web server port (80) to a high-numbered port, which is characteristic of a connection reset or scanning activity.",gemini-3.1-flash-lite
+175015,react,real,ATTACK,BENIGN,"The flow represents a standard TCP RST packet between two internal private IP addresses, which is common for terminating a connection.",gemini-3.1-flash-lite
+204862,single_shot,real,ATTACK,BENIGN,"The flow represents a standard TCP acknowledgment packet on port 80, consistent with normal web traffic communication.",gemini-3.1-flash-lite
+204862,react,real,ATTACK,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on port 80, which is consistent with normal local network communication.",gemini-3.1-flash-lite
+209326,single_shot,real,ATTACK,ATTACK,"The flow exhibits a protocol mismatch by using a TCP source port for a UDP stream, which is a common indicator of malicious traffic or scanning activity.",gemini-3.1-flash-lite
+209326,react,real,ATTACK,BENIGN,"The source IP is a private, local address and the traffic pattern does not exhibit any clear indicators of malicious activity.",gemini-3.1-flash-lite
+196644,single_shot,real,ATTACK,ATTACK,"The flow originates from a public IP address targeting a private internal host using ICMP, which is characteristic of external reconnaissance or a ping sweep.",gemini-3.1-flash-lite
+196644,react,real,ATTACK,BENIGN,"The traffic consists of standard ICMP packets from a trusted IP address, which is typical for network connectivity testing.",gemini-3.1-flash-lite
+149829,single_shot,real,ATTACK,ATTACK,"The source IP address 253.75.27.223 is part of a reserved/invalid address space, indicating a spoofed or malicious origin attempting to reach a local network host.",gemini-3.1-flash-lite
+149829,react,real,ATTACK,BENIGN,"The source IP is classified as trusted and the traffic consists of standard ICMP packets, which are typical for network diagnostics.",gemini-3.1-flash-lite
+294355,single_shot,real,ATTACK,BENIGN,"The flow represents standard ICMP echo request/reply traffic, which is typical for network connectivity testing.",gemini-3.1-flash-lite
+294355,react,real,ATTACK,BENIGN,"The traffic consists of standard ICMP packets directed to a trusted IP address, which is consistent with normal network connectivity testing.",gemini-3.1-flash-lite
+308830,single_shot,real,ATTACK,ATTACK,The presence of a TCP RST flag in a connection attempt to a non-standard port (4635) from a web server port (80) is indicative of a port scanning or connection reset attack.,gemini-3.1-flash-lite
+308830,react,real,ATTACK,BENIGN,"The flow involves internal IP addresses and a TCP RST flag, which is typical for terminating a legitimate connection.",gemini-3.1-flash-lite
+283625,single_shot,real,ATTACK,ATTACK,"The request targets a known vulnerable component (FCKeditor) within the DVWA application, which is a common indicator of web application exploitation attempts.",gemini-3.1-flash-lite
+283625,react,real,ATTACK,ATTACK,"The request targets a known vulnerable path (FCKeditor) within the DVWA application, which is commonly used for web application exploitation testing.",gemini-3.1-flash-lite
+310516,single_shot,real,ATTACK,ATTACK,The large payload size combined with the use of a non-standard high port (4321) is characteristic of data exfiltration or command-and-control communication.,gemini-3.1-flash-lite
+310516,react,real,ATTACK,BENIGN,The flow represents standard TCP traffic between two internal IP addresses (192.168.0.x) with no indicators of malicious intent or anomalous behavior.,gemini-3.1-flash-lite
+60368,single_shot,real,ATTACK,ATTACK,"The flow contains a SYN flag combined with a large payload of repeating characters, which is characteristic of a buffer overflow or injection attempt.",gemini-3.1-flash-lite
+60368,react,real,ATTACK,ATTACK,"The source IP address is in the multicast range (224.0.0.0/4), which is invalid for a standard TCP connection to a specific destination host.",gemini-3.1-flash-lite
+310964,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is a normal termination of a messaging session.",gemini-3.1-flash-lite
+310964,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet between two internal devices, which is normal protocol behavior.",gemini-3.1-flash-lite
+195313,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP acknowledgment between two internal devices on common ports, showing no signs of malicious intent.",gemini-3.1-flash-lite
+195313,react,real,BENIGN,BENIGN,The traffic is between two internal private IP addresses and exhibits standard TCP acknowledgment behavior.,gemini-3.1-flash-lite
+201795,single_shot,real,BENIGN,BENIGN,The flow represents standard TCP communication between internal devices using a common MQTT port (1883) and typical flag settings.,gemini-3.1-flash-lite
+201795,react,real,BENIGN,BENIGN,The traffic originates from a trusted internal IP address and exhibits standard TCP acknowledgment behavior consistent with legitimate communication.,gemini-3.1-flash-lite
+31682,single_shot,real,BENIGN,BENIGN,"The flow represents a standard TCP data transmission segment with a valid payload, consistent with typical network communication.",gemini-3.1-flash-lite
+31682,react,real,BENIGN,BENIGN,"The flow represents standard TCP traffic (likely a data transfer or session continuation) on port 5900, which is commonly used for VNC remote desktop services.",gemini-3.1-flash-lite
+44030,single_shot,real,BENIGN,BENIGN,"The flow represents standard MQTT traffic (port 1883) between internal devices, showing typical acknowledgment behavior.",gemini-3.1-flash-lite
+44030,react,real,BENIGN,BENIGN,The flow involves standard internal communication between private IP addresses on a common MQTT port (1883) with normal TCP flag behavior.,gemini-3.1-flash-lite
+248264,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for internal communication between local devices, which is typical for IoT messaging.",gemini-3.1-flash-lite
+248264,react,real,BENIGN,BENIGN,"The traffic is internal communication between two local devices over the standard MQTT port (1883), which is typical for IoT environments.",gemini-3.1-flash-lite
+41476,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) used to gracefully terminate a legitimate IoT communication session.,gemini-3.1-flash-lite
+41476,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is normal protocol behavior.",gemini-3.1-flash-lite
+184521,single_shot,real,BENIGN,BENIGN,The flow represents standard MQTT telemetry data reporting temperature and humidity readings between local IoT devices.,gemini-3.1-flash-lite
+184521,react,real,BENIGN,BENIGN,The traffic is a standard MQTT publish message containing temperature and humidity data between two internal devices.,gemini-3.1-flash-lite
+165379,single_shot,real,BENIGN,BENIGN,"The flow exhibits standard TCP characteristics, including a valid payload size and typical flag configuration, consistent with legitimate data transmission.",gemini-3.1-flash-lite
+165379,react,real,BENIGN,BENIGN,"The flow characteristics, including the high payload size and standard TCP flags, are consistent with legitimate data transfer, such as a file download or remote session, rather than a known attack pattern.",gemini-3.1-flash-lite
+322302,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) closing a legitimate session between local IoT devices.,gemini-3.1-flash-lite
+322302,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet (type 14) between two internal devices, which is normal protocol behavior.",gemini-3.1-flash-lite
+149243,single_shot,real,BENIGN,BENIGN,The flow represents a standard MQTT DISCONNECT packet (type 14) closing a legitimate session between two internal devices.,gemini-3.1-flash-lite
+149243,react,real,BENIGN,BENIGN,"The flow represents a standard MQTT DISCONNECT packet between two internal devices, which is normal protocol behavior.",gemini-3.1-flash-lite
+40082,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 for local communication with typical TCP flag settings, indicating normal IoT messaging.",gemini-3.1-flash-lite
+40082,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883 (MQTT), which is standard for IoT device communication.",gemini-3.1-flash-lite
+252281,single_shot,real,BENIGN,BENIGN,"The flow represents a standard MQTT response from a broker (port 1883) to a client, which is typical behavior for IoT device communication.",gemini-3.1-flash-lite
+252281,react,real,BENIGN,BENIGN,"The flow represents standard TCP traffic between two internal private IP addresses on a common port (1883, typically MQTT).",gemini-3.1-flash-lite
+320345,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP acknowledgment flags, consistent with typical IoT device communication.",gemini-3.1-flash-lite
+320345,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses on port 1883 (MQTT), which is standard for IoT device communication.",gemini-3.1-flash-lite
+227860,single_shot,real,BENIGN,BENIGN,"The flow uses standard MQTT port 1883 with normal TCP flag behavior, consistent with typical IoT device communication.",gemini-3.1-flash-lite
+227860,react,real,BENIGN,BENIGN,"The traffic is between two internal private IP addresses over port 1883, which is standard for MQTT messaging in IoT environments.",gemini-3.1-flash-lite
